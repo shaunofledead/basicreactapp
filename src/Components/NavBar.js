@@ -3,7 +3,9 @@ import CustomBtn from './CustomBtn'
 import logo from '../logo.svg'
 import logoMobile from '../logoMobile.svg'
 import { Toolbar, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
+
 
 const styles = makeStyles({
     bar:{
@@ -14,13 +16,14 @@ const styles = makeStyles({
           }
     },
     logo: {
-        width: "15%", 
+        width: "100%", 
         ['@media (max-width:780px)']: { 
            display: "none"
            }
     },
     logoMobile:{
         width: "100%", 
+        height: "100%",
         display: "none", 
         ['@media (max-width:780px)']: { 
             display: "inline-block"
@@ -34,31 +37,58 @@ const styles = makeStyles({
         },
         ['@media (max-width:780px)']: { 
             paddingBottom: "1rem"    }
-    }
+    },
 })
+
+const linkstyle = {
+    color: 'inherit',
+    width: '100%',
+    height: '100%',
+    margin: '0',
+    padding: '0',
+    textDecoration: 'none',
+};
+
+const imgstyle = {
+    width: '100%',
+    height: '100%',
+    textDecoration: 'none',
+};
 
 export default function Navbar() {
     const classes = styles()
     return (
     <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>   
+
+                <Link style={imgstyle} to="/">
                 <img src={logo} className={classes.logo}/> 
-                <img src={logoMobile} className={classes.logoMobile}/> 
+                <img src={logoMobile} className={classes.logoMobile}/></Link>
+                <Link style={linkstyle} to="/about">
                 <Typography variant="h6" className={classes.menuItem}>
                    About
-                </Typography>
+                </Typography></Link>
+                <Link style={linkstyle} to="/blog">
                 <Typography variant="h6" className={classes.menuItem}>
                     Blog
-                </Typography>
+                </Typography></Link>
+                <Link style={linkstyle} to="/Careers">
                 <Typography variant="h6" className={classes.menuItem}>
                     Careers
-                </Typography>
+                </Typography></Link>
+                <Link style={linkstyle} to="/Demos">
                 <Typography variant="h6" className={classes.menuItem}>
                     Demos 
-                </Typography>
+                </Typography></Link>
+                <Link style={linkstyle} to="/blog">
                 <Typography variant="h6" className={classes.menuItem}>
                     Contact Us 
-                </Typography>
+                </Typography></Link>
+                <a href="https://google.com" style={linkstyle} rel="noreferrer">
                 <CustomBtn txt="Try Our Product"/>
+                </a>
             </Toolbar>
   )
 }
+
+
+// target="_blank"

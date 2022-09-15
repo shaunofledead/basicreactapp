@@ -4,9 +4,7 @@ export default function
 () {
   return (
     <div>
-        <h1>
-            About page
-        </h1>
+        <h1> yellooosww     </h1>
     </div>
   )
 }
